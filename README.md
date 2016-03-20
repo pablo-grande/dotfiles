@@ -1,7 +1,8 @@
 # dotfiles
 
 ## vimrc
-Lives in `~/.vim/`
+Lives in `~/.vim/`.
+
 Uses [Vundle](https://github.com/VundleVim/Vundle.vim) to install plugins.
 
 ### airline
