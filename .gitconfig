@@ -7,19 +7,18 @@
         enabled = true
 
 [alias]
-        #check
         last = log -1
-	      st = status --short
-	      br = branch
+	st = status --short
+	br = branch
         co = commit
-	      ch = checkout
+	ch = checkout
 
         #undo
-	      unstage = reset HEAD --
-	      stash-unapply = '!git stash show -p | git apply -R'
-	      unmerge = reset --merge ORIG_HEAD
-	      undo = reset --hard
-	      retreat = reset --hard HEAD~1
+	unstage = reset HEAD --
+	undo = reset --hard
+	retreat = reset --hard HEAD~1
+	unmerge = reset --merge ORIG_HEAD
+	stash-unapply = '!git stash show -p | git apply -R'
 
         #puts your stash on a different branch (create it if necessary)
         piggyback = "!p() { git stash; git checkout $1 $2; git stash pop; }; p"
