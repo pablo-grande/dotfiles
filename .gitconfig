@@ -1,0 +1,38 @@
+[user]
+	email = pablo.riutort@gmail.com
+	name = Pablo
+
+[rerere]
+        #solve merge conflicts as they were solved before, with reviewing
+        enabled = true
+
+[alias]
+        #check
+        last = log -1
+	      st = status --short
+	      br = branch
+        co = commit
+	      ch = checkout
+
+        #undo
+	      unstage = reset HEAD --
+	      stash-unapply = '!git stash show -p | git apply -R'
+	      unmerge = reset --merge ORIG_HEAD
+	      undo = reset --hard
+	      retreat = reset --hard HEAD~1
+
+        #puts your stash on a different branch (create it if necessary)
+        piggyback = "!p() { git stash; git checkout $1 $2; git stash pop; }; p"
+
+        #show your work today, the --author must be your git user.name
+        punch-out = log --after="yesterday" --author="Pablo" --pretty=format:'%h% - %ar: % %s' --stat
+
+        #extended log
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+[core]
+	editor = vim
+	autocrlf = input
+	autoclrf = true
+[push]
+	default = simple
