@@ -52,23 +52,13 @@ filetype plugin indent on    " required
 "set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set nu
-set t_Co=256
+set t_Co=256		"Set colors
 
 "Airline settings
-set laststatus=2
+set laststatus=2	"Show airline
 set ttimeoutlen=50
+
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:Powerline_symbols = 'fancy'
 let g:airline_theme='badwolf'
-
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-"symbols
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.whitespace = 'Ξ'
