@@ -3,35 +3,38 @@
 	name = Pablo
 
 [rerere]
-        #solve merge conflicts as they were solved before, with reviewing
-        enabled = true
+	#solve merge conflicts as they were solved before, with reviewing
+	enabled = true
 
 [alias]
-        last = log -1
+    last = log -1
 	st = status --short
 	br = branch
-        co = commit
+	desc = branch --edit-description
+	co = commit
 	ch = checkout
+	bre = br --edit-description
 
-        #undo
+    #undo
 	unstage = reset HEAD --
 	undo = reset --hard
 	retreat = reset --hard HEAD~1
 	unmerge = reset --merge ORIG_HEAD
 	stash-unapply = '!git stash show -p | git apply -R'
 
-        #puts your stash on a different branch (create it if necessary)
-        piggyback = "!p() { git stash; git checkout $1 $2; git stash pop; }; p"
+	#puts your stash on a different branch (create it if necessary)
+	piggyback = "!p() { git stash; git checkout $1 $2; git stash pop; }; p"
 
-        #show your work today, the --author must be your git user.name
-        punch-out = log --after="yesterday" --author="Pablo" --pretty=format:'%h% - %ar: % %s' --stat
+	#show your work today, the --author must be your git user.name
+	punch-out = log --after="yesterday" --author="Pablo" --pretty=format:'%h% - %ar: % %s' --stat
 
-        #extended log
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+	#extended log
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [core]
 	editor = vim
 	autocrlf = input
 	autoclrf = true
+	excludesfile = /home/pablo/.gitignore_global
 [push]
 	default = simple

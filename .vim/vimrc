@@ -42,19 +42,11 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+" ========================================="
 
-"set showcmd		" Show (partial) command in status line.
-"set showmatch		" Show matching brackets.
-"set ignorecase		" Do case insensitive matching
-"set smartcase		" Do smart case matching
-"set incsearch		" Incremental search
-"set autowrite		" Automatically save before commands like :next and :make
-"set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
-set nu
-set t_Co=256		"Set colors
 
-"Airline settings
+" AIRLINE
+
 set laststatus=2	"Show airline
 set ttimeoutlen=50
 
@@ -62,3 +54,37 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let g:airline_theme='badwolf'
+
+
+" REGULAR CONFIG
+
+syn on se title		"Syntax highlighting on and show the file name in the terminal title bar
+set showcmd		" Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+"set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+"set incsearch		" Incremental search
+"set autowrite		" Automatically save before commands like :next and :make
+"set hidden		" Hide buffers when they are abandoned
+set mouse=a		" Enable mouse usage (all modes)
+set nu
+set t_Co=256		"Set colors
+
+set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+"hidden characters
+set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
+set list
+
+" Alias
+command NT NERDTree
+command Q q!
+command W wall
+
+" Snippets
+nnoremap ,head :0read! sed -n '1p' ~/.vim/snippets.py<CR>
+nnoremap ,with :-1read!  sed -n -e '/with/,/closed/p' ~/.vim/snippets.py<CR>
+nnoremap ,for :-1read! sed -n -e '/for v/,/pass/p' ~/.vim/snippets.py<CR>
+nnoremap ,fkv :-1read! sed -n -e '/for k/,/pass/p' ~/.vim/snippets.py<CR>
+nnoremap ,[for :-1read! sed -n -e '/x/,/$/p' ~/.vim/snippets.py<CR>
+nnoremap ,main :-1read! sed -n -e '/__name__/,/$/p' ~/.vim/snippets.py<CR>
+

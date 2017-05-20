@@ -113,9 +113,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Django stuff
+# virtualenvs
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Proyectos
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source /usr/local/bin/virtualenvwrapper.sh
 
 # Git branch name on prompt
@@ -125,6 +126,12 @@ function gitbranch() {
 
 # Colored prompt
 PS1="\[\e[1;92m\]\u@\h:\[\e[36m\]\w \[\e[1m\]\$(gitbranch)\$\[\e[0;00m\] "
-
-### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+#simplescalar
+export HOST=i686-unknown-linux
+export IDIR=~/Proyectos/simplesim
+export TARGET=sslittle-na-sstrix
+
+#jena
+export JENAROOT=/home/pablo/Proyectos/apache-jena-3.1.1/
