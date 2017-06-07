@@ -81,7 +81,7 @@ command Q q!
 command W wall
 
 " Snippets
-nnoremap ,head :0read! sed -n '1p' ~/.vim/snippets.py<CR>
+nnoremap ,head :0read! sed -n '1,2p' ~/.vim/snippets.py<CR>
 nnoremap ,with :-1read!  sed -n -e '/with/,/closed/p' ~/.vim/snippets.py<CR>
 nnoremap ,for :-1read! sed -n -e '/for v/,/pass/p' ~/.vim/snippets.py<CR>
 nnoremap ,fkv :-1read! sed -n -e '/for k/,/pass/p' ~/.vim/snippets.py<CR>
