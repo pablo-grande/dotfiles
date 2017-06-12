@@ -5,3 +5,4 @@ alias sscalar="docker run -it -v /home/pablo/Proyectos/simplescalar-docker/simpl
 alias uninstall="sudo apt-get purge --auto-remove"
 alias django="docker-compose run web"
 alias j_bot="docker run -d --env-file .env --name j_bot j_bot"
+alias ..="cd .."
