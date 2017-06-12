@@ -7,15 +7,14 @@
 	enabled = true
 
 [alias]
-    last = log -1
+    	last = log -1
 	st = status --short
 	br = branch
 	desc = branch --edit-description
 	co = commit
 	ch = checkout
-	bre = br --edit-description
 
-    #undo
+    	#undo
 	unstage = reset HEAD --
 	undo = reset --hard
 	retreat = reset --hard HEAD~1
