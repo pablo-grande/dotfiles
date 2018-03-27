@@ -20,8 +20,6 @@ if [ -z "${PROJECT_HOME}" ]; then
 	export PROJECT_HOME=$HOME/Projects
 fi
 
-
-# TODO: decrypt sensible data (with what key?) and export those keys
 source ~/.bashrc
 source ~/.bash_aliases
 
