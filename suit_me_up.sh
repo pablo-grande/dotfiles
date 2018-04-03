@@ -1,5 +1,4 @@
-#!/bin/bash
-
+#!/bin/bash 
 
 if [ $(id -u) -ne 0 ]; then
 	echo "ERROR: Non sudo user"
@@ -14,14 +13,22 @@ cp -r .vim $HOME
 apt update -y
 apt install -y `cat requirements.txt`
 
+# put git files at home/
+cp .gitconfig $HOME
+cp .gitignore_global $HOME
+
+# put all new files as $USER owner:group
+chown -R $USER:$USER $HOME/.vim/ $HOME/.bash* $HOME/.git*
+
 # check if Projects and PROJECT_HOME already exists
 if [ -z "${PROJECT_HOME}" ]; then 
 	mkdir $HOME/Projects
 	export PROJECT_HOME=$HOME/Projects
+	chown -R $USER:$USER $HOME/Projects/
 fi
 
-source ~/.bashrc
-source ~/.bash_aliases
+source $HOME/.bashrc
+source $HOME/.bash_aliases
 
 
 # =====
@@ -29,7 +36,7 @@ source ~/.bash_aliases
 # =====
 
 echo Installing Vundle
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 echo Installing Powerline fonts
 wget https://github.com/powerline/fonts/raw/master/UbuntuMono/Ubuntu%20Mono%20derivative%20Powerline.ttf
@@ -38,7 +45,6 @@ mkdir $font_dir
 cp *.ttf $font_dir
 rm *.ttf
 fc-cache -f -v
-
 
 exit
 
