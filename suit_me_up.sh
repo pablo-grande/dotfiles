@@ -39,12 +39,11 @@ echo Installing Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 echo Installing Powerline fonts
-wget https://github.com/powerline/fonts/raw/master/UbuntuMono/Ubuntu%20Mono%20derivative%20Powerline.ttf
-font_dir=/usr/local/share/fonts/UbuntuMono/
-mkdir $font_dir
-cp *.ttf $font_dir
-rm *.ttf
-fc-cache -f -v
+curl -LOk https://github.com/powerline/fonts/archive/master.zip
+unzip master.zip
+cp -r fonts-master/UbuntuMono/ /usr/local/share/fonts/
+fc-cache -fv
+rm -rf fonts-master/ master.zip
 
 exit
 
