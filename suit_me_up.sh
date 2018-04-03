@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 
 if [ $(id -u) -ne 0 ]; then
 	echo "ERROR: Non sudo user"
@@ -21,9 +21,9 @@ cp .gitignore_global $HOME
 chown -R $USER:$USER $HOME/.vim/ $HOME/.bash* $HOME/.git*
 
 # check if Projects and PROJECT_HOME already exists
-if [ -z "${PROJECT_HOME}" ]; then 
+if [ -z "${PROJECT_HOME}" ]; then
 	mkdir $HOME/Projects
-	export PROJECT_HOME=$HOME/Projects
+	echo PROJECT_HOME=$HOME/Projects >> $HOME/.bashrc
 	chown -R $USER:$USER $HOME/Projects/
 fi
 
@@ -32,7 +32,7 @@ source $HOME/.bash_aliases
 
 
 # =====
-#  VIM 
+#  VIM
 # =====
 
 echo Installing Vundle
@@ -46,4 +46,3 @@ fc-cache -fv
 rm -rf fonts-master/ master.zip
 
 exit
-

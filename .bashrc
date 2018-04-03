@@ -113,12 +113,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# virtualenvs
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/Proyectos
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
-
 # Git branch name on prompt
 function gitbranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
@@ -127,3 +121,4 @@ function gitbranch() {
 # Colored prompt
 PS1="\[\e[1;92m\]\u@\h:\[\e[36m\]\w \[\e[1m\]\$(gitbranch)\$\[\e[0;00m\] "
 
+PROJECT_HOME=$HOME/Projects >> $HOME/.bashrc
