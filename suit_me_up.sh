@@ -17,23 +17,18 @@ apt install -y `cat requirements.txt`
 cp .gitconfig $HOME
 cp .gitignore_global $HOME
 
-# put all new files as $USER owner:group
-chown -R $USER:$USER $HOME/.vim/ $HOME/.bash* $HOME/.git*
-
 # check if Projects and PROJECT_HOME already exists
 if [ -z "${PROJECT_HOME}" ]; then
 	mkdir $HOME/Projects
 	echo PROJECT_HOME=$HOME/Projects >> $HOME/.bashrc
-	chown -R $USER:$USER $HOME/Projects/
+	chown -R $SUDO_USER:$SUDO_USER $HOME/Projects/
 fi
 
 source $HOME/.bashrc
 source $HOME/.bash_aliases
 
 
-# =====
 #  VIM
-# =====
 
 echo Installing Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
@@ -44,5 +39,10 @@ unzip master.zip
 cp -r fonts-master/UbuntuMono/ /usr/local/share/fonts/
 fc-cache -fv
 rm -rf fonts-master/ master.zip
+
+
+# put all new files as $SUDO_USER owner:group
+chown -R $SUDO_USER:$SUDO_USER $HOME/.vim/ $HOME/.bash* $HOME/.git*
+
 
 exit
