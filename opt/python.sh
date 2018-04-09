@@ -6,7 +6,7 @@ pip3 install virtualenvwrapper
 
 echo Installing virtualenv
 bashrc=$HOME/.bashrc
-echo "\n" >> $bashrc
+echo "\n# Virtualenv\n" >> $bashrc
 echo WORKON_HOME=$HOME/.virtualenvs >> $bashrc
 echo VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3 >> $bashrc
 source ~/.local/bin/virtualenvwrapper.sh
