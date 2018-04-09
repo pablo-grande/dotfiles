@@ -1,7 +1,4 @@
-alias sqlmap="docker run sqlmap"
-alias bwapp="docker run -d -p 80:80 raesene/bwapp"
 alias python="python3"
-alias sscalar="docker run -it -v /home/pablo/Proyectos/simplescalar-docker/simplesim-3.0/:/simplescalar/simplesim-3.0 simplescalar"
 alias uninstall="sudo apt-get purge --auto-remove"
 alias django="docker-compose run web"
 alias j_bot="docker run -d --env-file .env --name j_bot j_bot"
