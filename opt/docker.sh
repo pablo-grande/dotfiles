@@ -28,3 +28,4 @@ usermod -aG docker $USER
 echo "WARNING: Log Out (or even reboot) in order to use Docker as $USER"
 
 exit
+
