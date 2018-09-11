@@ -1,3 +1,10 @@
+#!/bin/bash
+
+if [ $(id -u) -ne 0 ]; then
+	echo "ERROR: Non sudo user"
+	exit
+fi
+
 echo Installing pip3
 apt-get -y install python3-pip
 

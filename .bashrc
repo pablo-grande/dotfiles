@@ -121,4 +121,4 @@ function gitbranch() {
 # Colored prompt
 PS1="\[\e[1;92m\]\u@\h:\[\e[36m\]\w \[\e[1m\]\$(gitbranch)\$\[\e[0;00m\] "
 
-PROJECT_HOME=$HOME/Projects >> $HOME/.bashrc
+PROJECT_HOME=$HOME/Projects
