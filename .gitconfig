@@ -21,9 +21,6 @@
 	unmerge = reset --merge ORIG_HEAD
 	stash-unapply = '!git stash show -p | git apply -R'
 
-	#puts your stash on a different branch (create it if necessary)
-	piggyback = "!p() { git stash; git checkout $1 $2; git stash pop; }; p"
-
 	#show your work today, the --author must be your git user.name
 	punch-out = log --after="yesterday" --author="Pablo" --pretty=format:'%h% - %ar: % %s' --stat
 
@@ -33,7 +30,6 @@
 [core]
 	editor = vim
 	autocrlf = input
-	autoclrf = true
 	excludesfile = /home/pablo/.gitignore_global
 [push]
 	default = simple
