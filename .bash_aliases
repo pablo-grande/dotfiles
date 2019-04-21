@@ -1,5 +1,3 @@
-alias python="python3"
 alias uninstall="sudo apt purge --auto-remove"
-alias django="docker-compose run web"
-alias j_bot="docker run -d --env-file .env --name j_bot j_bot"
+alias install="sudo apt install -y"
 alias ..="cd .."
