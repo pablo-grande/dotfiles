@@ -31,7 +31,7 @@ apt-get -y install docker-ce
 
 
 echo Giving permissions to $USER
-usermod -aG docker $USER
+usermod -a -G docker $USER
 echo "WARNING: Log Out (or even reboot) in order to use Docker as $USER"
 
 exit
