@@ -118,6 +118,12 @@ function gitbranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
+# Virtualenv
+PROJECT_HOME=$HOME/Projects
+WORKON_HOME=$HOME/.virtualenvs
+VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+
 # Virtualenv prompt
 function venv_info(){
 	venv=''
@@ -128,11 +134,6 @@ function venv_info(){
 }
 export VIRTUAL_ENV_DISABLE_PROMPT=1 
 
+
 PS1="\[\e[1;33;45m\]\$(venv_info)\[\e[0;1;36m\]\w \[\e[0;1;32m\]\$(gitbranch)\[\e[0;1;36m\]\$\[\e[0;00m\] "
 
-PROJECT_HOME=$HOME/Projects
-
-# Virtualenv
-WORKON_HOME=/home/pablo/.virtualenvs
-VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
