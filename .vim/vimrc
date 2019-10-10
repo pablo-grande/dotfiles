@@ -27,7 +27,6 @@ Plugin 'vim-airline/vim-airline-themes'
 "jedi-vim
 Plugin 'https://github.com/davidhalter/jedi-vim.git'
 
-
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -65,9 +64,11 @@ set showmatch		" Show matching brackets.
 set smartcase		" Do smart case matching
 "set incsearch		" Incremental search
 "set autowrite		" Automatically save before commands like :next and :make
+set autoread	" Automatically reload file as soon as it changes on disk
 "set hidden		" Hide buffers when they are abandoned
 set mouse=a		" Enable mouse usage (all modes)
 set nu
+set background=dark
 set t_Co=256		"Set colors
 
 set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
