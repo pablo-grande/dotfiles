@@ -17,10 +17,8 @@ echo alias python=\"python3\" >> $bash_aliases
 echo alias pip=\"pip3\" >> $bash_aliases
 
 echo Installing virtualenv
-bashrc=$HOME/.bashrc
-echo "\n# Virtualenv" >> $bashrc
-echo WORKON_HOME=$HOME/.virtualenvs >> $bashrc
-echo VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3 >> $bashrc
-echo source /usr/local/bin/virtualenvwrapper.sh >> $bashrc
+readonly bashrc=$HOME/.bashrc
+# delete comment preventing virtualenvwrapper from being sourced
+sed -i '/virtualenvwrapper.sh/s/# //g' $bashrc
 . $bashrc
 
