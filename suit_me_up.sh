@@ -9,7 +9,7 @@ fi
 cp .bash* $HOME
 cp -r .vim $HOME
 
-# run install on requirements.txt (with pip if needed)
+# run install on requirements.txt
 apt update -y
 apt install -y `cat requirements.txt`
 
@@ -27,18 +27,18 @@ fi
 source $HOME/.bashrc
 source $HOME/.bash_aliases
 
-
-#  VIM
-
 echo Installing Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
-echo Installing Powerline fonts
-curl -LOk https://github.com/powerline/fonts/archive/master.zip
-unzip master.zip
-cp -r fonts-master/UbuntuMono/ /usr/local/share/fonts/
-fc-cache -fv
-rm -rf fonts-master/ master.zip
+readonly fonts_dir=/usr/local/share/fonts/
+if [ -d $fonts_dir ]; then
+	echo Installing Powerline fonts
+	curl -LOk https://github.com/powerline/fonts/archive/master.zip
+	unzip master.zip
+	cp -r fonts-master/UbuntuMono/ $fonts_dir
+	fc-cache -fv
+	rm -rf fonts-master/ master.zip
+fi
 
 
 # put all new files as $SUDO_USER owner:group
