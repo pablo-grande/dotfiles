@@ -40,9 +40,10 @@ if [ -d $fonts_dir ]; then
 	rm -rf fonts-master/ master.zip
 fi
 
+echo "Setting i3"
+cp -r i3* $HOME/.config
 
 # put all new files as $SUDO_USER owner:group
-chown -R $SUDO_USER:$SUDO_USER $HOME/.vim/ $HOME/.bash* $HOME/.git*
+chown -R $SUDO_USER:$SUDO_USER $HOME/.vim/ $HOME/.bash* $HOME/.git* $HOME/.config/i3*
 
 
-exit
