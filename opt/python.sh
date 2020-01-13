@@ -5,14 +5,14 @@ if [ $(id -u) -ne 0 ]; then
 	exit
 fi
 
-echo Installing pip3
-apt-get -y install python3-pip
+echo Installing python packages
+apt-get -y install python3 python3-pip ipython
 
 pip3 install virtualenv
 pip3 install virtualenvwrapper
 
 echo Aliasing python3
-bash_aliases=$HOME/.bash_aliases
+readonly bash_aliases=$HOME/.bash_aliases
 echo alias python=\"python3\" >> $bash_aliases
 echo alias pip=\"pip3\" >> $bash_aliases
 
@@ -24,4 +24,3 @@ echo VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3 >> $bashrc
 echo source /usr/local/bin/virtualenvwrapper.sh >> $bashrc
 . $bashrc
 
-exit
