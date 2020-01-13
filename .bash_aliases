@@ -1,3 +1,6 @@
-alias uninstall="sudo apt purge --auto-remove"
 alias install="sudo apt install -y"
+alias uninstall="sudo apt purge --autoremove -y"
 alias ..="cd .."
+alias hgr="history | grep "
+alias logout="sudo pkill -u $USER"
+alias telegram="Telegram/Telegram --"
