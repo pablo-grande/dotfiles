@@ -21,9 +21,6 @@
 	unmerge = reset --merge ORIG_HEAD
 	stash-unapply = '!git stash show -p | git apply -R'
 
-	#show your work today, the --author must be your git user.name
-	punch-out = log --after="yesterday" --author="Pablo" --pretty=format:'%h% - %ar: % %s' --stat
-
 	#extended log
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
