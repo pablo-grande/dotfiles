@@ -149,10 +149,6 @@ bar {
         status_command i3status
 }
 
-# keymap toggle to alt + space
-exec setxkbmap -layout us,es
-exec setxkbmap -option 'grp:alt_space_toggle'
-
 # blue colored window
 # set $tardis #0a9dff
 # client.focused  $tardis $tardis #040404
