@@ -5,6 +5,7 @@ if [ $(id -u) -ne 0 ]; then
 	exit
 fi
 
+HOME=/home/$SUDO_USER
 # move all dotfiles into HOME
 cp .bash* $HOME
 cp -r .vim $HOME
@@ -29,16 +30,6 @@ source $HOME/.bash_aliases
 
 echo Installing Vundle
 git clone https://github.com/VundleVim/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
-
-readonly fonts_dir=/usr/local/share/fonts/
-if [ -d $fonts_dir ]; then
-	echo Installing Powerline fonts
-	curl -LOk https://github.com/powerline/fonts/archive/master.zip
-	unzip master.zip
-	cp -r fonts-master/UbuntuMono/ $fonts_dir
-	fc-cache -fv
-	rm -rf fonts-master/ master.zip
-fi
 
 echo "Setting i3"
 cp -r i3* $HOME/.config

@@ -45,9 +45,12 @@ set laststatus=2	"Show airline
 set ttimeoutlen=50
 
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
 let g:Powerline_symbols = 'fancy'
 let g:airline_theme='badwolf'
+
+" AIRLINE FONTS
+" Need to install fonts from https://github.com/powerline/fonts/archive/master.zip
+" let g:airline_powerline_fonts = 1  " Needs to install fonts
 
 
 " REGULAR CONFIG
