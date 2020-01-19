@@ -6,10 +6,10 @@ if [ $(id -u) -ne 0 ]; then
 fi
 
 echo Installing python packages
-apt-get -y install python3 python3-pip ipython
+apt-get -y install python3 python3-pip python3-setuptools ipython
 
-pip3 install virtualenv
-pip3 install virtualenvwrapper
+pip3 install --user virtualenv wheel
+pip3 install --user virtualenvwrapper
 
 echo Aliasing python3
 HOME=/home/$SUDO_USER

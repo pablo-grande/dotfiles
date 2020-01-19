@@ -121,7 +121,7 @@ function gitbranch() {
 # Virtualenv
 WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source /usr/local/bin/virtualenvwrapper.sh
+# source $HOME/.local/bin/virtualenvwrapper.sh
 
 # Virtualenv prompt
 function venv_info(){
