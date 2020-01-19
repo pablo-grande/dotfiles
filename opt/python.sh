@@ -12,6 +12,7 @@ pip3 install virtualenv
 pip3 install virtualenvwrapper
 
 echo Aliasing python3
+HOME=/home/$SUDO_USER
 readonly bash_aliases=$HOME/.bash_aliases
 echo alias python=\"python3\" >> $bash_aliases
 echo alias pip=\"pip3\" >> $bash_aliases

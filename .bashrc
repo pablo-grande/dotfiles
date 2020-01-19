@@ -118,8 +118,6 @@ function gitbranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-PROJECT_HOME=$HOME/Projects
-
 # Virtualenv
 WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
