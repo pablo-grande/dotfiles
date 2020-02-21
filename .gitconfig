@@ -1,32 +1,34 @@
 [user]
-	email = pablo.riutort@gmail.com
-	name = Pablo
+    email = pablo.riutort@gmail.com
+    name = Pablo Riutort
 
 [rerere]
-	#solve merge conflicts as they were solved before, with reviewing
-	enabled = true
+    #solve merge conflicts as they were solved before, with reviewing
+    enabled = true
 
 [alias]
-    	last = log -1
-	st = status --short
-	br = branch
-	desc = branch --edit-description
-	co = commit
-	ch = checkout
+    last = log -1
+    st = status --short
+    br = branch
+    desc = !git config --get branch.`git symbolic-ref --short HEAD`.description
+    co = commit -v
+    ch = checkout
 
-    	#undo
-	unstage = reset HEAD --
-	undo = reset --hard
-	retreat = reset --hard HEAD~1
-	unmerge = reset --merge ORIG_HEAD
-	stash-unapply = '!git stash show -p | git apply -R'
+    #undo
+    unstage = reset HEAD --
+    undo = reset --hard
+    retreat = reset --hard HEAD~1
+    unmerge = reset --merge ORIG_HEAD
+    stash-unapply = '!git stash show -p | git apply -R'
 
-	#extended log
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    #extended log
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [core]
-	editor = vim
-	autocrlf = input
-	excludesfile = /home/pablo/.gitignore_global
+    editor = vim
+    autocrlf = input
+    excludesfile = /home/pablo/.gitignore_global
 [push]
-	default = simple
+    default = simple
+[merge]
+    branchdesc = false
