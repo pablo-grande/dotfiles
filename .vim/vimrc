@@ -64,15 +64,19 @@ set smartcase		" Do smart case matching
 "set autowrite		" Automatically save before commands like :next and :make
 set autoread	" Automatically reload file as soon as it changes on disk
 "set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
+set mouse=v		" Enable mouse usage
 set nu
 set background=dark
 set t_Co=256		"Set colors
 
-set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+set autoindent
+set smartindent
 "hidden characters
 set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
 set list
+
+set clipboard=unnamed
 
 " Alias
 command NT NERDTree
@@ -86,4 +90,4 @@ nnoremap ,for :-1read! sed -n -e '/for v/,/pass/p' ~/.vim/snippets.py<CR>
 nnoremap ,fkv :-1read! sed -n -e '/for k/,/pass/p' ~/.vim/snippets.py<CR>
 nnoremap ,[for :-1read! sed -n -e '/x/,/$/p' ~/.vim/snippets.py<CR>
 nnoremap ,main :-1read! sed -n -e '/__name__/,/$/p' ~/.vim/snippets.py<CR>
-
+nnoremap ,ipdb :-1read! sed -n -e '/import/,/$/p' ~/.vim/snippets.py<CR>
