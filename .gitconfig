@@ -2,10 +2,6 @@
     email = pablo.riutort@gmail.com
     name = Pablo Riutort
 
-[rerere]
-    #solve merge conflicts as they were solved before, with reviewing
-    enabled = true
-
 [alias]
     last = log -1
     st = status --short
