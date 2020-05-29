@@ -20,6 +20,8 @@
     #extended log
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
+    whoops="!git add --all; git commit --amend --no-edit"
+    whoopsie="!git add --all; git commit --amend --no-edit; git push -f origin `git symbolic-ref --short HEAD`"
 [core]
     editor = vim
     autocrlf = input

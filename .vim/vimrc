@@ -69,12 +69,12 @@ set nu
 set background=dark
 set t_Co=256		"Set colors
 
-set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab
+set tabstop=4 softtabstop=4 shiftwidth=2 expandtab smarttab
 set autoindent
 set smartindent
 "hidden characters
-set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
-set list
+"set listchars=eol:¬,tab:>-,trail:·,extends:>,precedes:<
+"set list
 
 set clipboard=unnamed
 
