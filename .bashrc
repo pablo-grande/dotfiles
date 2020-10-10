@@ -118,10 +118,6 @@ function gitbranch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
 
-# keymap toggle to alt + space
-setxkbmap -layout us,es
-setxkbmap -option 'grp:alt_space_toggle'
-
 # Virtualenv
 WORKON_HOME=$HOME/.virtualenvs
 VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
