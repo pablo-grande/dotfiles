@@ -1,8 +1,0 @@
-curl
-git
-vim
-i3
-i3status
-ranger
-suckless-tools
-lxappearance
