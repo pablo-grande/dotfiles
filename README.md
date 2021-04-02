@@ -1,4 +1,4 @@
-Arch(like) dotfiles
+dotfiles
 ===
 
 
