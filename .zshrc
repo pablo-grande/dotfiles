@@ -25,9 +25,17 @@ bindkey '^R' history-incremental-search-backward
 autoload -U compinit
 compinit
 
-setopt SHARE_HISTORY
-setopt APPEND_HISTORY
-setopt INC_APPEND_HISTORY
+setopt share_history
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+export WORKON_HOME=./virtualenvs
+export PROJECT_HOME=$HOME/Projects
+source $HOME/.local/bin/virtualenvwrapper.sh
+
+# Plugins from https://github.com/zsh-users
+# autosuggestions
+# source $HOME/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+# syntax hightlight (must be at the end of .zshrc)
+# source $HOME/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

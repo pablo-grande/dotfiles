@@ -1,2 +1,5 @@
+alias ..="cd .."
 alias ls="ls --color=auto"
 alias la="ls -a"
+alias wk="workon"
+alias tsm="transmission-remote"
