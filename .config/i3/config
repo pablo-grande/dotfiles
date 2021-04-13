@@ -11,8 +11,6 @@ set $down j
 set $up k
 set $right l
 
-set $term i3-sensible-terminal
-
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -37,7 +35,7 @@ font xft:TerminessTTFNerdFontMono
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec tilix
 
 # kill focused window
 bindsym $mod+Shift+q kill
