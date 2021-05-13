@@ -1,6 +1,3 @@
-[user]
-    email = pablo.riutort@gmail.com
-    name = Pablo Riutort
 
 [alias]
     last = log -1
