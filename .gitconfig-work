@@ -1,0 +1,8 @@
+[user]
+    email = pablo.riutort@vodafone.com
+    name = pablo-riutort
+[init]
+    defaultBranch = master
+[credential]
+    username = priutor
+    helper = store

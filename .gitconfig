@@ -1,6 +1,6 @@
 [user]
-    email = pablo.riutort@gmail.com
-    name = Pablo Riutort
+    email = pablo.grande@proton.me
+    name = Pablo
 
 [alias]
     last = log -1
@@ -31,3 +31,5 @@
     branchdesc = false
 [init]
     defaultBranch = main
+[includeIf "gitdir:~/Work/"]
+    path = .gitconfig-work

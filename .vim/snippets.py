@@ -1,10 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*
 
-with open('file', '') as f:
-    
-f.closed
-
 for value in a_list:
     pass
 

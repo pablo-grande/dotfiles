@@ -31,3 +31,7 @@
 *~
 *.swp
 *.swo
+*.ipynb_checkpoints/
+
+.vscode/
+*.code-workspace

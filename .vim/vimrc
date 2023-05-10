@@ -10,11 +10,13 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
+Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'https://github.com/vim-airline/vim-airline.git'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'bitc/vim-bad-whitespace'
+
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -64,9 +66,7 @@ set background=dark
 set t_Co=256		"Set colors
 set hlsearch
 
-set tabstop=2
-set shiftwidth=2
-set expandtab
+set tabstop=8 softtabstop=0 expandtab shiftwidth=4 smarttab
 set autoindent
 set smartindent
 "hidden characters
@@ -88,6 +88,7 @@ au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
 let NERDTreeIgnore=['\.pyc$', '\~$']
 
 " Alias
+command NT NERDTree
 command Q q!
 
 " Toogle hlsearch
@@ -102,16 +103,12 @@ nnoremap <C-H> <C-W><C-H>
 
 " Snippets
 nnoremap ,head :0read! sed -n '1,2p' ~/.vim/snippets.py<CR>
-nnoremap ,with :-1read!  sed -n -e '/with/,/closed/p' ~/.vim/snippets.py<CR>
 nnoremap ,for :-1read! sed -n -e '/for v/,/pass/p' ~/.vim/snippets.py<CR>
 nnoremap ,fkv :-1read! sed -n -e '/for k/,/pass/p' ~/.vim/snippets.py<CR>
-nnoremap ,[for :-1read! sed -n -e '/x/,/$/p' ~/.vim/snippets.py<CR>
+nnoremap ,[f :-1read! sed -n -e '/x/,/$/p' ~/.vim/snippets.py<CR>
 nnoremap ,main :-1read! sed -n -e '/__name__/,/$/p' ~/.vim/snippets.py<CR>
 nnoremap ,ipdb :-1read! sed -n -e '/import/,/$/p' ~/.vim/snippets.py<CR>
 nnoremap ,br :-1read! sed -n -e '/breakpoint/,/$/p' ~/.vim/snippets.py<CR>
 
-
-" PYTHON
-
-" pretty code
 let python_highlight_all=1
+

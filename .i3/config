@@ -33,16 +33,15 @@ font xft:TerminessTTFNerdFontMono
 floating_modifier $mod
 
 bindsym $mod+Return exec tilix
-bindsym $mod+Shift+p exec tilix -e 'python -m ipython'
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency -fn 'TerminessTTFNerdFontMono'
+bindsym $mod+d exec --no-startup-id dmenu_recency -fn 'TerminessTTFNerdFontMono' -p ">"
 
 # passmenu launcher
-bindsym $mod+p exec --no-startup-id passmenu -fn 'TerminessTTFNerdFontMono' -nb '#222D31' -sb '#1ABB9B'
+bindsym $mod+p exec --no-startup-id passmenu -fn 'TerminessTTFNerdFontMono' -nb '#222D31' -sb '#1ABB9B' -p "🔒"
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -64,9 +63,10 @@ bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness 
 
 # Start Applications
 bindsym $mod+Ctrl+b exec tilix -e bmenu
-bindsym $mod+F2 exec brave
+bindsym $mod+F2 exec microsoft-edge-stable
+bindsym $mod+Shift+F2 exec brave
 bindsym $mod+F3 exec tilix -e ranger
-bindsym $mod+Shift+F3 exec pcmanfm 
+bindsym $mod+Shift+F3 exec pcmanfm
 # bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec tilix -e mocp
 bindsym $mod+t exec --no-startup-id pkill picom
@@ -258,25 +258,25 @@ mode "$mode_system" {
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left resize shrink width 5 px or 5 ppt
-        bindsym $down resize grow height 5 px or 5 ppt
-        bindsym $up resize shrink height 5 px or 5 ppt
-        bindsym $right resize grow width 5 px or 5 ppt
+    # These bindings trigger as soon as you enter the resize mode
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym $left resize shrink width 5 px or 5 ppt
+    bindsym $down resize grow height 5 px or 5 ppt
+    bindsym $up resize shrink height 5 px or 5 ppt
+    bindsym $right resize grow width 5 px or 5 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
 
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # exit resize mode: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
 
 # Lock screen
@@ -285,15 +285,12 @@ bindsym $mod+9 exec --no-startup-id blurlock
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-# exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id start_conky_maia
-# exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -331,25 +328,25 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-	i3bar_command i3bar
-	status_command i3status
-	position bottom
+    i3bar_command i3bar
+    status_command i3status
+    position bottom
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#	tray_output primary
-#	tray_output eDP1
+    # please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+    # tray_output primary
+    # tray_output eDP1
 
-	bindsym button4 nop
-	bindsym button5 nop
-#   font xft:URWGothic-Book 11
-	strip_workspace_numbers yes
+    bindsym button4 nop
+    bindsym button5 nop
+    # font xft:URWGothic-Book 11
+    strip_workspace_numbers yes
 
     colors {
         background #222D31
         statusline #F9FAF9
         separator  #454947
 
-#                      border  backgr. text
+        # border  backgr. text
         focused_workspace  #F9FAF9 #16a085 #292F34
         active_workspace   #595B5B #353836 #FDF6E3
         inactive_workspace #595B5B #222D31 #EEE8D5
@@ -387,7 +384,7 @@ gaps outer -2
 # Smart gaps (gaps used if only more than one container on the workspace)
 smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
@@ -403,6 +400,7 @@ mode "$mode_gaps" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
 mode "$mode_gaps_inner" {
         bindsym plus  gaps inner current plus 5
         bindsym minus gaps inner current minus 5
@@ -427,3 +425,18 @@ mode "$mode_gaps_outer" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
+
+# screen mode selector
+set $mode_display (h)ome, (n)ipple
+
+mode "$mode_display" {
+    bindsym h exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+
+    bindsym n exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 0x0 --rotate normal
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+x mode "$mode_display"
+
