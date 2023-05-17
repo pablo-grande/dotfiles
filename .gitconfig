@@ -25,6 +25,7 @@
     editor = vim
     autocrlf = input
     excludesfile = /home/pablo/.gitignore_global
+    pager = cat
 [push]
     default = simple
 [merge]
