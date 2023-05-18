@@ -427,11 +427,11 @@ mode "$mode_gaps_outer" {
 }
 
 # screen mode selector
-set $mode_display (h)ome, (n)ipple
+set $mode_display (s)ingle, (d)ouble, (n)ipple
 
 mode "$mode_display" {
-    bindsym h exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
-
+    bindsym s exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
+    bindsym d exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 1920x0 --rotate normal
     bindsym n exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 0x0 --rotate normal
     # back to normal: Enter or Escape
     bindsym Return mode "default"
