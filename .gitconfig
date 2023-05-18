@@ -34,3 +34,5 @@
     defaultBranch = main
 [includeIf "gitdir:~/Work/"]
     path = .gitconfig-work
+[gpg]
+    program = gpg2
