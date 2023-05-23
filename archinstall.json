@@ -32,7 +32,8 @@
     "packages": [
         "git",
         "openssh",
-        "firefox"
+        "firefox",
+        "zsh"
     ],
     "parallel downloads": 0,
     "profile": {
@@ -46,7 +47,7 @@
     "sys-language": "en_US",
     "timezone": "UTC",
     "version": "2.5.6"
-}
+},
 {
     "/dev/nvme0n1": {
         "partitions": [
