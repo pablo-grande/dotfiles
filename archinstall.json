@@ -33,7 +33,8 @@
         "git",
         "openssh",
         "firefox",
-        "zsh"
+        "zsh",
+        "python-pip"
     ],
     "parallel downloads": 0,
     "profile": {
