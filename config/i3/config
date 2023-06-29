@@ -205,12 +205,11 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # screen mode selector
-set $mode_display screen: (s)ingle, (d)ouble, (n)ipple
+set $mode_display screen: (s)ingle, (d)ouble
 
 mode "$mode_display" {
     bindsym s exec --no-startup-id xrandr --output eDP-1 --off --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --primary --mode 1920x1080 --pos 0x0 --rotate normal
     bindsym d exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 1920x0 --rotate normal
-    bindsym n exec --no-startup-id xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-1 --off --output HDMI-2 --mode 1920x1080 --pos 0x0 --rotate normal
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
