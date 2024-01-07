@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+if [ -z "$1" ]; then
+    echo "Usage: $0 <length> [-s] [-n]"
+    exit 1
+fi
+
+length=$1
+shift  # Remove the length argument, so getopts can process the remaining arguments
+
+num_chars="0-9"
+special_chars="!@#$%^&*"
+char_set="a-zA-Z"
+
+
+while getopts ":sn" opt; do
+  case $opt in
+    s) char_set+="${special_chars}"
+    ;;
+    n) char_set+="${num_chars}"
+    ;;
+    \?) echo "Invalid option -$OPTARG" >&2
+    ;;
+  esac
+done
+
+tr -dc "${char_set}" < /dev/urandom | fold -w $length | head -n 1
+
