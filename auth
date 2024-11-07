@@ -1,0 +1,83 @@
+#!/bin/zsh
+
+
+usage() {
+    echo "
+    Usage:
+        auth [-h|-l|-d|-s] [scope]
+
+    Set environment variables to proper access different environments.
+    For local environment sets GitHub and Nexus env variables to build packages.
+    For dev and staging envionments sets env variable ACCESS_TOKEN with token for given Apigee scope and environment.
+
+    Options:
+        -h,--help      Print this help and exit
+        -l,--local     Local environment
+        -d,--dev       Dev environment
+        -s,--stg       Staging environment
+        scope          Case insensitive Apigee scope without 'APIGEE_PRODUCT' tail
+    "
+}
+
+
+local_env() {
+    office=$(pass work/office)
+    email=$(grep "email" <<< $office | cut -d " " -f 2)
+    psw=$(head -1 <<< $office)
+    export NEXUS_USER=$email
+    export NEXUS_PASSWORD=$(urlencode $psw)
+
+    gh_work=$(pass work/github)
+    gh_user=$(grep user <<< $gh_work | cut -d = -f 2)
+    gh_password=$(grep password <<< $gh_work | cut -d = -f 2)
+    export GITHUB_USER=$gh_user
+    export GITHUB_TOKEN=$gh_password
+}
+
+
+[[ "$#" -eq 0 ]] && local_env && return
+[[ "$1" == "-h" ]] || [[ "$1" == "--help" ]] && usage && return
+[[ -z "$1" ]] && echo "ERROR: No scope supplied" && return
+
+[[ "$1" == "-l" ]] || [[ "$1" == "--local" ]] && local_env && return
+[[ "$1" == "-d" ]] || [[ "$1" == "--dev" ]] && env="dev"
+[[ "$1" == "-s" ]] || [[ "$1" == "--stg" ]] && env="stg"
+
+
+export AUTH_ENV=$env
+scope="${2:u}_APIGEE_PRODUCT"
+
+declare -A client_ids client_secrets urls
+
+client_ids=(
+    [dev]=$(pass work/client/dev | grep id | cut -d : -f 2)
+    [stg]=$(pass work/client/stg | grep id | cut -d : -f 2)
+)
+client_secrets=(
+    [dev]=$(pass work/client/dev | head -1)
+    [stg]=$(pass work/client/stg | head -1)
+)
+urls=(
+    [dev]=$(pass work/client/dev | grep url | cut -d : -f 2)
+    [stg]=$(pass work/client/stg | grep url | cut -d : -f 2)
+)
+
+export BASE_URL=$urls[$env]
+export TOKEN_URL="oauth2/token"
+
+[[ -z $client_ids[$env] ]] && echo "ERROR: Non valid environment supplied" && return
+
+curl_result=`curl --location --silent --request POST \
+  "https://$env-naap.api.vodafone.com/$TOKEN_URL" \
+  --header "Content-Type: application/x-www-form-urlencoded" \
+  --data-urlencode "grant_type=client_credentials" \
+  --data-urlencode "client_id=$client_ids[$env]" \
+  --data-urlencode "client_secret=$client_secrets[$env]" \
+  --data-urlencode "scope=$scope"`
+
+export ACCESS_TOKEN=`grep "access_token" <<< "$curl_result" | cut -d \" -f 4`
+export TEST_CLIENT_ID=$client_ids[$env]
+export TEST_CLIENT_SECRET=$client_secrets[$env]
+
+echo $curl_result
+
