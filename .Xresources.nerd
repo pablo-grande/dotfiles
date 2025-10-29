@@ -1,0 +1,60 @@
+! -------- urxvt + Nerd Fonts starter pack --------
+
+! --- Font (primary + symbols fallback)
+URxvt.font: xft:JetBrainsMono Nerd Font:size=11,xft:Symbols Nerd Font Mono:pixelsize=11,xft:Symbols Nerd Font:pixelsize=11
+URxvt.boldFont: xft:JetBrainsMono Nerd Font:size=11:style=Bold,xft:Symbols Nerd Font Mono:pixelsize=11,xft:Symbols Nerd Font:pixelsize=11
+URxvt.italicFont: xft:JetBrainsMono Nerd Font:size=11:style=Italic,xft:Symbols Nerd Font Mono:pixelsize=11,xft:Symbols Nerd Font:pixelsize=11
+URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font:size=11:style=Bold Italic,xft:Symbols Nerd Font Mono:pixelsize=11,xft:Symbols Nerd Font:pixelsize=11
+
+
+! Slight spacing tweaks (optional)
+URxvt.letterSpace:  0
+URxvt.lineSpace:    1
+
+! --- Truecolor/256color friendliness
+URxvt.depth:        32
+URxvt*termName:     rxvt-unicode-256color
+
+! --- Window/padding/cursor
+URxvt.internalBorder: 12
+URxvt.scrollBar:      false
+URxvt.cursorBlink:    true
+
+! --- Scrollback
+URxvt.saveLines:      100000
+
+! --- Clipboard & URLs (Perl extensions)
+URxvt.perl-ext-common: default,clipboard,selection-to-clipboard,url-select,keyboard-select
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+URxvt.keysym.M-c:     perl:clipboard:copy
+URxvt.keysym.M-v:     perl:clipboard:paste
+URxvt.autocopy: true
+URxvt.url-select.launcher:  xdg-open
+URxvt.url-select.underline: true
+URxvt.keysym.M-u:     perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+! --- Colors (Nord-ish example; tweak to taste)
+URxvt.background:   #2E3440
+URxvt.foreground:   #D8DEE9
+URxvt.color0:       #3B4252
+URxvt.color8:       #4C566A
+URxvt.color1:       #BF616A
+URxvt.color9:       #BF616A
+URxvt.color2:       #A3BE8C
+URxvt.color10:      #A3BE8C
+URxvt.color3:       #EBCB8B
+URxvt.color11:      #EBCB8B
+URxvt.color4:       #81A1C1
+URxvt.color12:      #81A1C1
+URxvt.color5:       #B48EAD
+URxvt.color13:      #B48EAD
+URxvt.color6:       #88C0D0
+URxvt.color14:      #88C0D0
+URxvt.color7:       #E5E9F0
+URxvt.color15:      #ECEFF4
+
+! transparency
+*.transparent:   true
+*.shading:       20
